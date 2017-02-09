@@ -1,5 +1,6 @@
 const config = require('./config.js')
 const getGreetings = require('./intents/greetings.js')
+const getInsults = require('./intents/insults.js')
 const restify = require('restify')
 const builder = require('botbuilder')
 const recast = require('recastai')
@@ -18,10 +19,12 @@ bot.dialog('/', (session) => {
      const intent = res.intent()
      session.send(`Intent: ${intent.slug}`)
      if (intent.slug === 'greeting') {
-       console.log("123")
-       console.log(getGreetings())
        session.send(getGreetings())
      }
+     if (intent.slug === 'insults') {
+       session.send(getInsults())
+     }
+     console.log(res)
    })
    .catch(() => session.send('I need some sleep right now... Talk to me later!'))
 })
