@@ -1,6 +1,7 @@
 const config = require('./config.js')
 const getGreetings = require('./intents/greetings.js')
 const getInsults = require('./intents/insults.js')
+const listTheRules = require('./intents/rules.js')
 const restify = require('restify')
 const builder = require('botbuilder')
 const recast = require('recastai')
@@ -16,15 +17,31 @@ const bot = new builder.UniversalBot(connector)
 bot.dialog('/', (session) => {
   recastClient.textRequest(session.message.text)
    .then(res => {
+    // session.send(`Hello: ${session.message.text}`);
      const intent = res.intent()
-     session.send(`Intent: ${intent.slug}`)
-     if (intent.slug === 'greeting') {
-       session.send(getGreetings())
-     }
-     if (intent.slug === 'insults') {
-       session.send(getInsults())
-     }
      console.log(res)
+     //session.send(`Intent: ${intent.slug}`)
+     if (intent!=null){
+       session.send(`INTENT: ${intent.slug}`);
+       if (intent.slug === 'goodbyes') {
+         session.send(`(wave) ${session.message.text} (wave)`)
+       }
+       if (intent.slug === 'greeting') {
+         session.send(getGreetings() + ` ${session.message.user.name}`)
+       }
+       if (intent.slug === 'insults') {
+         session.send(getInsults())
+       }
+       if (intent.slug === 'rules') {
+         session.send(listTheRules())
+       }
+     }
+     else {
+       session.send(`Hello ${session.message.user.name} :)`)
+       console.log("not known intent")
+       console.log(res)
+     }
+     //
    })
    .catch(() => session.send('I need some sleep right now... Talk to me later!'))
 })
