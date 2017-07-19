@@ -28,7 +28,7 @@ bot.dialog('/', (session) => {
      console.log(address)
      const intent = res.intent();
      console.log(res)
-     db.addFriend(session.message.user.id,session.message.user.name)
+     //db.addFriend(session.message.user.id,session.message.user.name)
      //session.send(`Intent: ${intent.slug}`)
      if (intent!=null){
        session.send(`INTENT: ${intent.slug}`)
@@ -71,7 +71,7 @@ bot.dialog('/', (session) => {
          });
        }
        //session.send(`${res.action.reply}`)
-       db.getFriends();
+       //db.getFriends();
      }
      else {
        session.send(`Hello ${session.message.user.name} :)`)
