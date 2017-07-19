@@ -85,7 +85,7 @@ bot.dialog('/', (session) => {
 
 // Server Init
 const server = restify.createServer()
-var portnumber = 8080
+var portnumber = process.env.PORT || 8080
 server.listen(portnumber)
 console.log("listning to port " + portnumber)
 server.post('/', connector.listen())
