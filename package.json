@@ -21,8 +21,8 @@
     "mysql": "^2.13.0",
     "node-flickr": "^1.0.0",
     "recastai": "^2.3.0",
-    "restify": "^4.3.0",
-    "request":"^5.3.0"
+    "request": "^2.83.0",
+    "restify": "^4.3.0"
   },
   "engines": {
     "node": "7.5.x"
