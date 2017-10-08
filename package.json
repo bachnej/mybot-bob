@@ -19,6 +19,7 @@
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.0",
     "mysql": "^2.13.0",
+    "node-flickr": "^1.0.0",
     "recastai": "^2.3.0",
     "restify": "^4.3.0"
   },

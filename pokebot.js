@@ -8,6 +8,9 @@ const builder = require('botbuilder')
 const recast = require('recastai')
 const recastClient = new recast.Client(config.recast)
 var request = require('request');
+var Flickr = require("node-flickr");
+var keys = {"api_key": "31ec304be9ca8d34e083523a230bdda7"}
+flickr = new Flickr(keys);
 
 // Connection to Microsoft Bot Framework
 const connector = new builder.ChatConnector({
@@ -52,6 +55,19 @@ bot.dialog('/', (session) => {
        }
        if (intent.slug === 'nabil') {
          session.send(`Nabbouuull HAPPY Birthday`)
+       }
+       if (intent.slug === 'flickr') {
+         topic = session.message.text.replace('flickr','').trim().toLowerCase();
+         console.log(topic);
+         flickr.get("photos.search", {"text":topic, "sort":"relevance"}, function(err, result){
+            if (err) return console.error(err);
+            index = Math.floor(Math.random() * Object.keys(result.photos).length) + 1;
+            console.log(result.photos);
+            console.log(index);
+            var photo = result.photos.photo[index];
+            var url = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_c.jpg";
+            session.send(url);
+          });
        }
        if (intent.slug === 'capitals') {
          var url = (JSON.stringify("https://restcountries.eu/rest/v2/name/" + res.entities[0].raw)).replace(/[^a-zA-Z0-9-_. :/]/g, '');
