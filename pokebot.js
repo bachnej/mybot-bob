@@ -9,7 +9,7 @@ const recast = require('recastai')
 const recastClient = new recast.Client(config.recast)
 var request = require('request');
 var Flickr = require("node-flickr");
-var keys = {"api_key": "31ec304be9ca8d34e083523a230bdda7"}
+var keys = {"api_key": config.flickrKey}
 flickr = new Flickr(keys);
 
 // Connection to Microsoft Bot Framework
