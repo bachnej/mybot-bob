@@ -65,8 +65,12 @@ bot.dialog('/', (session) => {
             console.log(result.photos);
             console.log(index);
             var photo = result.photos.photo[index];
-            var url = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_c.jpg";
-            session.send(url);
+            if(typeof photo !== 'undefined' && photo){
+              var url = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_c.jpg";
+              session.send(url);
+            }else {
+              session.send("Sorry i cannot flickr that");
+            }
           });
        }
        if (intent.slug === 'capitals') {
