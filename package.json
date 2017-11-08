@@ -7,22 +7,22 @@
   "dependencies": {
     "botbuilder": "^3.6.0",
     "hubot": "^2.19.0",
-    "hubot-diagnostics": "0.0.1",
+    "hubot-diagnostics": "0.0.2",
     "hubot-google-images": "^0.2.6",
     "hubot-google-translate": "^0.2.0",
     "hubot-help": "^0.2.0",
     "hubot-heroku-keepalive": "^1.0.2",
-    "hubot-maps": "0.0.2",
+    "hubot-maps": "0.0.3",
     "hubot-pugme": "^0.1.0",
-    "hubot-redis-brain": "0.0.3",
+    "hubot-redis-brain": "0.0.4",
     "hubot-rules": "^0.1.1",
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.0",
     "mysql": "^2.13.0",
     "node-flickr": "^1.0.0",
-    "recastai": "^2.3.0",
+    "recastai": "^3.6.0",
     "request": "^2.83.0",
-    "restify": "^4.3.0"
+    "restify": "^6.3.1"
   },
   "engines": {
     "node": "7.5.x"
