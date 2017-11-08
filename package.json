@@ -20,7 +20,7 @@
     "hubot-shipit": "^0.2.0",
     "mysql": "^2.13.0",
     "node-flickr": "^1.0.0",
-    "recastai": "^3.6.0",
+    "recastai": "^2.3.0",
     "request": "^2.83.0",
     "restify": "^6.3.1"
   },
