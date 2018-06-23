@@ -60,7 +60,7 @@ bot.dialog('/', (session) => {
        if (intent.slug === 'url') {
           session.send(`${res.source}`)
 
-          requestify.get("${res.source}").then(function(response) {
+          requestify.get(res.source).then(function(response) {
             session.send(`${res.source} invoked with status code` + response.statusCode)
           });
         }
