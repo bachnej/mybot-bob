@@ -59,7 +59,7 @@ bot.dialog('/', (session) => {
        if (intent.slug === 'url') {
          session.send(`${res.source}`)
 
-         request.get('${res.source}',options,function(err,resp,body){
+         request.get(`${res.source}`,options,function(err,resp,body){
             if(err) {
               console.log(err);
             }
@@ -110,7 +110,7 @@ bot.dialog('/', (session) => {
      }
 
    })
-   .catch(() => session.send('I need some sleep right now... Talk to me later!'))
+   .catch((err) => session.send(` ${err} I need some sleep right now... Talk to me later!`))
 })
 
 // Server Init
