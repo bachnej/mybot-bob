@@ -6,6 +6,7 @@ const listTheRules = require('./intents/rules.js')
 const restify = require('restify')
 const builder = require('botbuilder')
 const recast = require('recastai')
+var requestify = require('requestify');
 const recastClient = new recast.Client(config.recast)
 var request = require('request');
 var Flickr = require("node-flickr");
@@ -57,15 +58,12 @@ bot.dialog('/', (session) => {
          session.send(`Nabbouuull HAPPY Birthday`)
        }
        if (intent.slug === 'url') {
-         session.send(`${res.source}`)
+          session.send(`${res.source}`)
 
-         request.get(`${res.source}`,options,function(err,resp,body){
-            if(err) {
-              console.log(err);
-            }
+          requestify.get(`${res.source}`).then(function(response) {
+            session.send(`${res.source} invoked with status code` + response.statusCode)
           });
-         session.send(`url invoked with status code` + resp.statusCode)
-       }
+        }
        if (intent.slug === 'flickr') {
          topic = session.message.text.replace('flickr','').trim().toLowerCase();
          console.log(topic);

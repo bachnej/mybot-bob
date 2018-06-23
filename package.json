@@ -22,6 +22,7 @@
     "node-flickr": "^1.0.0",
     "recastai": "^2.3.0",
     "request": "^2.83.0",
+    "requestify": "^0.2.5",
     "restify": "^6.3.1"
   },
   "engines": {
