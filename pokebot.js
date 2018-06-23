@@ -57,15 +57,14 @@ bot.dialog('/', (session) => {
          session.send(`Nabbouuull HAPPY Birthday`)
        }
        if (intent.slug === 'url') {
-         session.send(res)
-         session.send(entities[0].raw)
+         session.send(`${res.source}`)
 
-         request.get('https://someplace',options,function(err,res,body){
+         request.get('${res.source}',options,function(err,resp,body){
             if(err) {
               console.log(err);
             }
           });
-         session.send(`url invoked with status code` + res.statusCode)
+         session.send(`url invoked with status code` + resp.statusCode)
        }
        if (intent.slug === 'flickr') {
          topic = session.message.text.replace('flickr','').trim().toLowerCase();
