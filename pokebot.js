@@ -63,10 +63,7 @@ bot.dialog('/', (session) => {
          request.get('https://someplace',options,function(err,res,body){
             if(err) {
               console.log(err);
-
             }
-            if(res.statusCode !== 200 ) //etc
-            //TODO Do something with response
           });
          session.send(`url invoked with status code` + res.statusCode)
        }
